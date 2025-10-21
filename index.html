@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(39, 50, 59);
+            color: white;
+        }
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start; /* if using flexbox */
+            align-items: flex-start;     /* if using flexbox */
+            text-align: left;
+        }
+        .projects-btn:hover, .projects-btn:active {
+            background-color: rgb(60, 79, 94);
+            border: 1px solid white;
+            
+        }
+        .projects-btn {
+            border-radius: 5px;
+        }
+        .lang-btn:hover, .lang-btn:active {
+            background-color: rgb(60, 79, 94);
+            border: 1px solid white;
+            
+        }
+        .lang-btn {
+            border-radius: 5px;
+        }
+        .news-btn:hover, .news-btn:active {
+            background-color: rgb(60, 79, 94);
+            border: 1px solid white;
+            
+        }
+        .news-btn {
+            border-radius: 5px;
+        }
+        .news{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <dir class="container">
+        <h4 style="font-family: 'JetBrains Mono', monospace; font-weight: 300;"><b>./home/packet/portafolio.html</b></h4>
+        <br>
+        <br>
+        <br>
+        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Welcome, to my portafolio</b></h1>
+        <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">Hey, my name is <b>packet.stormz</b> and I am a software developer.</p>
+        <div class="buttons-container">
+            <a href="#news" style="color: white; text-decoration: none;  font-size: 25px; font-family: 'JetBrains Mono', monospace; font-weight: 100;" class="news-btn">News</a>
+            <a href="#projects" style="color: white; text-decoration: none; font-size: 25px; font-family: 'JetBrains Mono', monospace; font-weight: 100" class="projects-btn">Projects</a>
+            <a href="#lang" style="color: white; text-decoration: none; font-size: 25px;font-family: 'JetBrains Mono', monospace; font-weight: 100;" class="lang-btn">My languages</a>
+        </div>
+    </dir>
+    <hr>
+    <dir class="News" id="news">
+        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>News</b></h1>
+        <div class="news1">
+            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>End of windows 10 support</b></h1>
+            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">On October 14, 2025 <a href="https://microsoft.com" style="text-decoration: none; color: gray;" target="_blank">Microsoft</a> announced the EOS (End of support) of their popular Windows 10 OS (Opering System). If you we're affected you can <a href="/news/eol/" style="text-decoration: none; color: gray;" target="_blank">Click Here</a> to see what you can do.</p>
+        </div>
+        <div class="news2">
+            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Major AWS (Amazon Web Services) outage!</b></h1>
+            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">Amazon Monday afternoon said that its systems are mostly back online after a massive Amazon Web Services (AWS) cloud services outage brought down thousands of high-profile apps, websites and online platforms with it.</p>
+        </div>
+    </dir>
+    <hr>
+    <dir class="projects" id="projects">
+        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Projects</b></h1>
+        <p style="font-family: 'JetBrains Mono', monospace; font-weight: 100;">Some projects are private and the projects below are my IN-PROGRESS projects.</p>
+        <div class="project1">
+            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>VolatileMC</b></h1>
+            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">A Minecraft practice server.</p>
+        </div>
+        <div class="project2">
+            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Modify</b></h1>
+            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">A Minecraft Mod Sharing tool.</p>
+        </div>
+        <div class="project3">
+            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>VIAFABRICPLUS and VIAVERSION</b></h1>
+            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">A Minecraft Mod/Plugin that allows users to join any server on any version.</p>
+        </div>
+        
+    </dir>
+    <hr>
+    <dir class="lang" id="lang">
+        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;gap: 25px;"><b>Languages</b></h1>
+        <div class="pl" style="border: 1px solid white; border-radius: 4px; padding-left: 10px; padding-right: 10px;">
+            <h3 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;gap: 25px;"><b>Languages</b></h3>
+            <div class="Python" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/image.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Python</p>
+                
+            </div>
+            <div class="bashzsh" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/gnubash.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <img src="/img/zsh.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >GNU BASH and ZSH</p>
+                
+            </div>
+            <div class="kotlin" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/kotlin.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Kotlin</p>
+                
+            </div>
+            <div class="lua" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/lua.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Lua</p>
+                
+            </div>
+            <div class="lua" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/html.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <img src="/img/css.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >HTML and CSS</p>
+                
+            </div>
+            <div class="javascript" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/JavaScript.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >JavaScript</p>
+                
+            </div>
+            <div class="git" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/git.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Git</p>
+                
+            </div>
+            
+        </div>
+        <br>
+        <div class="tools" style="border: 1px solid white; border-radius: 4px; padding-left: 10px; padding-right: 10px;">
+            <h3 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;gap: 25px;"><b>Tools</b></h3>
+            <div class="vscode" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/vsc.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Visual Studio Code</p>
+                
+            </div>
+            <div class="github" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/github.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Github</p>
+                
+            </div>
+            <div class="linux" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/linux.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Linux (Ubuntu, Arch, Debian)</p>
+                
+            </div>
+            <div class="discord" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/discord.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Discord</p>
+                
+            </div>
+            <div class="nginx" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/niginx.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Nginx</p>
+                
+            </div>
+            <div class="unity" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/unity.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Unity</p>
+                
+            </div>
+            <div class="blender" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/blender.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Blender</p>
+                
+            </div>
+            <div class="4-chan" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/4-chan.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >4 Chan</p>
+                
+            </div>
+            <div class="pterodactyl" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/pterodactyl.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Pterodactyl Panel</p>
+                
+            </div>
+            <div class="hackme" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/tryhackme.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Try Hack Me</p>
+                
+            </div>
+            <div class="nodejs" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/node.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >NODEjs.org</p>
+                
+            </div>
+            <div class="tor" style="display: flex;">
+                <p>- </p>
+                <p style="color: transparent;">ee</p>
+                <img src="/img/tor.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
+                <p style="color: transparent;">ee</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >TOR BROWSER</p>
+                
+            </div>
+        </div>
+        <hr>
+        <div class="footer">
+            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 100; text-align: center;">© 2024 packet.stormz. All rights reserved. Icons by https://simpleicons.org.</p>
+        </div>
+    </dir>
+</body>
+</html>
