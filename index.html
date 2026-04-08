@@ -1,278 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portafolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: rgb(39, 50, 59);
-            color: white;
-        }
-        .buttons-container {
-            display: flex;
-            gap: 20px;
-            justify-content: flex-start; /* if using flexbox */
-            align-items: flex-start;     /* if using flexbox */
-            text-align: left;
-        }
-        .projects-btn:hover, .projects-btn:active {
-            background-color: rgb(60, 79, 94);
-            border: 1px solid white;
-            
-        }
-        .projects-btn {
-            border-radius: 5px;
-        }
-        .lang-btn:hover, .lang-btn:active {
-            background-color: rgb(60, 79, 94);
-            border: 1px solid white;
-            
-        }
-        .lang-btn {
-            border-radius: 5px;
-        }
-        .news-btn:hover, .news-btn:active {
-            background-color: rgb(60, 79, 94);
-            border: 1px solid white;
-            
-        }
-        .news-btn {
-            border-radius: 5px;
-        }
-        .news{
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>packet.stormz | Portfolio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, sans-serif;
+      background-color: #07101f;
+      --text: #f3f7ff;
+      color: var(--text);
+      --bg: #07101f;
+      --surface: rgba(255,255,255,0.05);
+      --surface-strong: rgba(255,255,255,0.1);
+      --border: rgba(255,255,255,0.12);
+      --accent: #6dd5ed;
+      --accent2:rgb(248, 46, 56)d;
+      --accent-strong: #4a90f2;
+      --muted: #9db4d2;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(109,213,237,0.14), transparent 25%),
+                  radial-gradient(circle at bottom right, rgba(74,159,231,0.12), transparent 24%),
+                  linear-gradient(180deg, #07101f 0%, #091326 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body, button, input, textarea {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 16, 31, 0.86);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #eef6ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: #f3f7ff;
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      max-width: 14ch;
+      line-height: 0.96;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero p {
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 1.5rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button-primary {
+      color: #06131f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 22px 45px rgba(109,213,237,0.18);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+      padding: 0;
+    }
+
+    .hero-card li {
+      padding: 1.3rem 1.25rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-card span {
+      display: inline-block;
+      margin-bottom: 0.65rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-header {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 2.6vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 70ch;
+      font-size: 1rem;
+    }
+
+    .feature-grid,
+    .project-grid,
+    .skill-grid,
+    .contact-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature-card,
+    .project-card,
+    .skill-card,
+    .contact-card {
+      padding: 2rem;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 60px rgba(1, 11, 24, 0.14);
+    }
+
+    .feature-card h3,
+    .project-card h3,
+    .skill-card h3,
+    .contact-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .feature-card p,
+    .project-card p,
+    .skill-card p,
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(109,213,237,0.12);
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      margin-top: 1.4rem;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.97rem;
+    }
+    .project-link2 {
+      display: inline-flex;
+      margin-top: 1.4rem;
+      color: var(--accent2);
+      font-weight: 700;
+      font-size: 0.97rem;
+    }
+
+    .skill-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .skill-pill {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+
+    .skill-pill span {
+      background: rgba(255,255,255,0.06);
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: #eef6ff;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .contact-links a {
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      transition: background-color 180ms ease;
+    }
+
+    .contact-links a:hover {
+      background: rgba(109,213,237,0.14);
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .feature-grid,
+      .project-grid,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <dir class="container">
-        <h4 style="font-family: 'JetBrains Mono', monospace; font-weight: 300;"><b>./home/packet/portafolio.html</b></h4>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="#home">packet.stormz</a>
+      <nav class="nav-links">
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Languages</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Game Developer · Server Management · Software Developer · Cybersecurity · Designer</p>
+          <h1>"Developing is just a game."</h1>
+          <p>Hello, I'm <b>packet.stormz</b>, I'm a enthusiastic developer passionate about creating, innovating, and solving problems.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#about">About Me</a>
+            <a class="button button-secondary" href="#skills">Languages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-header">
+        <span class="section-label">About</span>
+        <h2 class="section-title">My story</h2>
+        <p class="section-description">My development journey started at the age of 8, when I was introduced to programming through simple game development projects on my school's computer lab.</p>
+        <p class="section-description">Over the years, I've learned a lot and gained experience in various areas of development and cybersecurity, and joining projects ranging from small <b>Roblox</b> games to enterprise-level applications, projects, and managing servers. </p>
+        <p class="section-description">Now, back to today I've learned over <b>7 years</b> of experience, and knowledge of over <b>10+</b> programming languages, over <b>100+</b> tools, and participated in various open-source projects, and closed-source projects.</p>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header">
+        <span class="section-label">Projects</span>
+        <h2 class="section-title">Recent projects.</h2>
+      </div>
+
+      <span class="section-label">Minecraft Projects</span>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="project-tag">Minecraft Plugin & Mod</span>
+          <h3>ViaFabricPlus & ViaVersion</h3>
+          <p>Tools that let players join servers on different Minecraft versions while preserving stability and plugin support.</p>
+          <a class="project-link" href="https://github.com/ViaVersion/ViaFabricPlus" target="_blank">View repository</a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">Minecraft Server</span>
+          <h3>VolatileMC</h3>
+          <p>A fast practice server environment with custom systems built for player testing, mini-games, and community growth.</p>
+          <a class="project-link2" href="https://google.com">Project Closed</a>
+        </article>  
+
+        <article class="project-card">
+          <span class="project-tag">Client</span>
+          <h3>Feather Client</h3>
+          <p>Feather Client is a lightweight, Minecraft client focused on performance and customization.</p>
+          <a class="project-link" href="https://feathermc.com/">View Website</a>
+        </article>
+      </div>
+      <br>
+      <span class="section-label">Roblox Projects</span>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Jay's British Army</h3>
+          <p>A roblox British Army founded on November 28th 2025, by Jay.</p>
+          <p><b>Rank:</b> Board Of Directors / Lead Developer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/1071173260/JBA-British-rmy" target="_blank">View group</a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Flexx's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Developer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/992107591/ABA-Ayski-s-British-Army" target="_blank">View group</a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Vein's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Chief Developer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/33466532/United-States-Presidential-Protection-Act" target="_blank">View group (Group Shutdown)</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Cannosa British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Developer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/15384912/CBA-Cannosa-British-Army" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Franco's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Engineer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/34457479/FBA-British-Army" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Conficts British Army (prev liams ba)</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Chief Developer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/980815265/LBA-Liams-British-Army" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>SirHostis's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Senior Engineer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/299814160/SBA-British-Army" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>SirHostis's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Senior Engineer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/299814160/SBA-British-Army" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Authority's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Royal Engineer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/35896414/BA-British-Army" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Sirloku's British Army (British Armed Forces)</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Senior Engineer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/805098100/British-Armed-Forces" target="_blank">View group</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">British Army</span>
+          <h3>Authority's British Army</h3>
+          <p>A roblox British Army.</p>
+          <p><b>Rank:</b> Royal Engineer</p>
+          <a class="project-link" href="https://www.roblox.com/communities/35896414/BA-British-Army" target="_blank">View group</a>
+        </article>
         <br>
+
+      </div>
+      <span class="section-label">Other</span>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="project-tag">Server Hosting</span>
+          <h3>Crystal Hosting</h3>
+          <p>A game hosting Company</p>
+          <a class="project-link" href="https://www.google.com" target="_blank">unreleased</a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">Server Hosting</span>
+          <h3>Packet Hosting</h3>
+          <p>A game hosting Company</p>
+          <a class="project-link" href="https://www.google.com" target="_blank">unreleased</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">Website</span>
+          <h3>Bitskye Password Manager</h3>
+          <p>Password Generator using xChaCha20 encryption.</p>
+          <a class="project-link" href="https://github.com/Dalfin-byte/BitSkye-Password-Manager" target="_blank">Github Repository</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">Tool</span>
+          <h3>ZapMail</h3>
+          <p>ZapMail is a simple Python library to send emails via Gmail's SMTP server. It supports plain text, HTML content, attachments, and CC/BCC fields.</p>
+          <a class="project-link" href="https://github.com/Dalfin-byte/ZapMail" target="_blank">Github Repository</a>
+        </article>
         <br>
-        <br>
-        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Welcome, to my portafolio</b></h1>
-        <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">Hey, my name is <b>packet.stormz</b> and I am a software developer.</p>
-        <div class="buttons-container">
-            <a href="#news" style="color: white; text-decoration: none;  font-size: 25px; font-family: 'JetBrains Mono', monospace; font-weight: 100;" class="news-btn">News</a>
-            <a href="#projects" style="color: white; text-decoration: none; font-size: 25px; font-family: 'JetBrains Mono', monospace; font-weight: 100" class="projects-btn">Projects</a>
-            <a href="#lang" style="color: white; text-decoration: none; font-size: 25px;font-family: 'JetBrains Mono', monospace; font-weight: 100;" class="lang-btn">My languages</a>
-        </div>
-    </dir>
-    <hr>
-    <dir class="News" id="news">
-        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>News</b></h1>
-        <div class="news1">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>New Neptune update with code I designed.</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">https://github.com/Solara-Development/Neptune</p>
-        </div>
-        <div class="news2">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>New ViaFabric Update including code i designed.</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">https://github.com/ViaVersion/ViaFabricPlus<div class="news2">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>End of windows 10 support</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">On October 14, 2025 <a href="https://microsoft.com" style="text-decoration: none; color: gray;" target="_blank">Microsoft</a> announced the EOS (End of support) of their popular Windows 10 OS (Opering System). If you we're affected you can <a href="/news/eol/" style="text-decoration: none; color: gray;" target="_blank">Click Here</a> to see what you can do.</p>
-        </div>
-        <div class="news3">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Major AWS (Amazon Web Services) outage! (UPDATED)</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">Amazon Monday afternoon said that its systems are mostly back online after a massive Amazon Web Services (AWS) cloud services outage brought down thousands of high-profile apps, websites and online platforms with it.</p>
-        </div>
-    </dir>
-    <hr>
-    <dir class="projects" id="projects">
-        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Projects</b></h1>
-        <p style="font-family: 'JetBrains Mono', monospace; font-weight: 100;">Some projects are private and the projects below are my IN-PROGRESS projects.</p>
-        <div class="project1">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>VolatileMC</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">A Minecraft practice server.</p>
-        </div>
-        <div class="project2">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>Modify</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">A Minecraft Mod Sharing tool.</p>
-        </div>
-        <div class="project3">
-            <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;"><b>VIAFABRICPLUS and VIAVERSION</b></h1>
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;">A Minecraft Mod/Plugin that allows users to join any server on any version.</p>
-        </div>
-        
-    </dir>
-    <hr>
-    <dir class="lang" id="lang">
-        <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;gap: 25px;"><b>Languages</b></h1>
-        <div class="pl" style="border: 1px solid white; border-radius: 4px; padding-left: 10px; padding-right: 10px;">
-            <h3 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;gap: 25px;"><b>Languages</b></h3>
-            <div class="Python" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/image.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Python</p>
-                
-            </div>
-            <div class="bashzsh" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/gnubash.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <img src="/img/zsh.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >GNU BASH and ZSH</p>
-                
-            </div>
-            <div class="kotlin" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/kotlin.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Kotlin</p>
-                
-            </div>
-            <div class="lua" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/lua.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Lua</p>
-                
-            </div>
-            <div class="lua" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/html.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <img src="/img/css.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >HTML and CSS</p>
-                
-            </div>
-            <div class="javascript" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/JavaScript.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >JavaScript</p>
-                
-            </div>
-            <div class="git" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/git.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Git</p>
-                
-            </div>
-            
-        </div>
-        <br>
-        <div class="tools" style="border: 1px solid white; border-radius: 4px; padding-left: 10px; padding-right: 10px;">
-            <h3 style="font-family: 'JetBrains Mono', monospace; font-weight: 500;gap: 25px;"><b>Tools</b></h3>
-            <div class="vscode" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/vsc.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Visual Studio Code</p>
-                
-            </div>
-            <div class="github" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/github.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Github</p>
-                
-            </div>
-            <div class="linux" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/linux.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Linux (Ubuntu, Arch, Debian)</p>
-                
-            </div>
-            <div class="discord" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/discord.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Discord</p>
-                
-            </div>
-            <div class="nginx" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/niginx.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Nginx</p>
-                
-            </div>
-            <div class="unity" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/unity.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Unity</p>
-                
-            </div>
-            <div class="blender" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/blender.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Blender</p>
-                
-            </div>
-            <div class="4-chan" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/4-chan.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >4 Chan</p>
-                
-            </div>
-            <div class="pterodactyl" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/pterodactyl.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Pterodactyl Panel</p>
-                
-            </div>
-            <div class="hackme" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/tryhackme.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >Try Hack Me</p>
-                
-            </div>
-            <div class="nodejs" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/node.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >NODEjs.org</p>
-                
-            </div>
-            <div class="tor" style="display: flex;">
-                <p>- </p>
-                <p style="color: transparent;">ee</p>
-                <img src="/img/tor.png" alt="Python" width="25" height="25" style="padding-top: 13px;">
-                <p style="color: transparent;">ee</p>
-                <p style="font-family: 'JetBrains Mono', monospace; font-weight: 300;" >TOR BROWSER</p>
-                
-            </div>
-        </div>
-        <hr>
-        <div class="footer">
-            <p style="font-family: 'JetBrains Mono', monospace; font-weight: 100; text-align: center;">© 2024 packet.stormz. All rights reserved. Icons by https://simpleicons.org.</p>
-        </div>
-    </dir>
+
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">Languages, platforms, and tools.</h2>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-card">
+          <h3>Languages</h3>
+          <p>Python, Kotlin, JavaScript, Lua, Bash, HTML/CSS, Java, React, C, C#, C++, G-Code, GO (beginner), Rust, Ruby</p>
+          <div class="skill-pill">
+            <span>Python</span><span>Kotlin</span><span>JS</span><span>Lua</span><span>Java</span><span>React</span><span>C</span><span>C#</span><span>C++</span><span>G-Code</span><span>GO</span><span>Rust</span><span>Ruby</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Server tooling</h3>
+          <p>Git, Linux, NGINX, Pterodactyl, Docker, Feather, Gitea, Pufferpanel, BeEF</p>
+          <div class="skill-pill">
+            <span>Git</span><span>NGINX</span><span>Linux</span><span>Pterodactyl</span><span>Docker</span><span>Feather</span><span>Gitea</span><span>Pufferpanel</span><span>BeEF</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Design & build</h3>
+          <p>Developer experiences, frontend, and lightweight game/graphics tools.</p>
+          <div class="skill-pill">
+            <span>UI/UX</span><span>Blender</span><span>Unity</span><span>Godot</span><span>Unreal Engine</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  <footer class="container footer-text">
+    <p>© 2026 packet.stormz. :3</p>
+  </footer>
 </body>
 </html>
